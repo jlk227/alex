@@ -1,0 +1,14 @@
+[{"input": {"str": "aaacodebbb"},"output": 1, "hint": "func('aaacodebbb') -> 1"},
+{"input": {"str": "codexxcode"},"output": 2, "hint": "func('codexxcode') -> 2"},
+{"input": {"str": "cozexxcope"},"output": 2, "hint": "func('cozexxcope') -> 2"},
+{"input": {"str": "cozfxxcope"},"output": 1, "hint": "func('cozfxxcope') -> 1"},
+{"input": {"str": "xxcozeyycop"},"output": 1, "hint": "func('xxcozeyycop') -> 1"},
+{"input": {"str": "cozcop"},"output": 0, "hint": "func('cozcop') -> 0"},
+{"input": {"str": "abxxyz"},"output": 0, "hint": "func('abxxyz') -> 0"},
+{"input": {"str": "code"},"output": 1, "hint": "func('code') -> 1"},
+{"input": {"str": "c"},"output": 0, "hint": "func('c') -> 0"},
+{"input": {"str": ""},"output": 0, "hint": "func('') -> 0"},
+{"input": {"str": "AAcodeBBcoleCCccoreDD"},"output": 3, "hint": "func('AAcodeBBcoleCCccoreDD') -> 3"},
+{"input": {"str": "AAcodeBBcoleCCccorfDD"},"output": 2, "hint": "func('AAcodeBBcoleCCccorfDD') -> 2"},
+{"input": {"str": "coAcodeBcoleccoreDD"},"output": 3, "hint": "func('coAcodeBcoleccoreDD') -> 3"}
+]

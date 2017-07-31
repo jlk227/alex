@@ -1,0 +1,10 @@
+[{"input": {"a": 1, "b": 2, "c": 10},"output": true , "hint": "func(1, 2, 10) -> true"},
+{"input": {"a": 1, "b": 2, "c": 3},"output": false, "hint": "func(1, 2, 3) -> false"},
+{"input": {"a": 4, "b": 1, "c": 3},"output": true, "hint": "func(4, 1, 3) -> true"},
+{"input": {"a": 4, "b": 5, "c": 3},"output": false, "hint": "func(4, 5, 3) -> false"},
+{"input": {"a": -1, "b": 10, "c": 0},"output": true, "hint": "func(-1, 10, 0) -> true"},
+{"input": {"a": 0, "b": -1, "c": 10},"output": true, "hint": "func(0, -1, 10) -> true "},
+{"input": {"a": 10, "b": 10, "c": 8},"output": true, "hint": "func(10, 10, 8) -> true"},
+{"input": {"a": 8, "b": 9, "c": 7},"output": false, "hint": "func(8, 9, 7) -> false"},
+{"input": {"a": 8, "b": 6, "c": 9},"output": true, "hint": "func(8, 6, 9) -> true"}
+]

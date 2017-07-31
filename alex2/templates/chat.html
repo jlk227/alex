@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <div class="problem-description">{{ problem.description |safe}}</div>
+
+  <div class="twitbox" id="accept_chat">
+    <h3>You did really well for this problem!</h3>
+    <h3>Would you like to help another user who is currently stuck on this problem in real time?</h3>
+    <form id="join_as_teacher" method="POST" action="#">
+        <input type="hidden" name="problem" id="problem_id" value="{{problem.problem_id}}">
+        <input type="hidden" name="teacher_id" id="teacher_id" value="{{g.user.user_id}}">
+        <input type="submit" value="YES, I want to help">
+        <a class="btn" href="{{ url_for('problem') }}">NO, go to my next question</a>
+    </form>
+  </div>
+
+  <div class="leave-room" id="leave_chat" hidden>
+    <form id="leave_as_teacher" method="POST" action="#" style="margin: 10px 0px;">
+        <input type="hidden" name="problem" id="problem_id" value="{{problem.problem_id}}">
+        <input type="hidden" name="teacher_id" id="teacher_id" value="{{g.user.user_id}}">
+        <input type="submit" value="Leave Chat?">
+    </form>
+  </div>
+
+  <div class="twitbox" id="send_chat" hidden>
+    <form id="send_room" method="POST" action="#">
+        <input type="hidden" type="text" name="room_name" id="room_name" value="{{session.room}}">
+        <input type="hidden" type="text" name="user_name" id="user_id" value="{{g.user.user_id}}">
+        <textarea name="room_data" id="room_data" placeholder="Message"> </textarea>
+        <input type="submit" value="Send" style="float:right">
+    </form>
+  </div>
+
+  <div class="chat_messages" id="receive_chats" hidden>
+      <h2>Chat Messages</h2>
+      <ul id="log" class="messages"></ul>
+  </div>
+
+{% endblock %}

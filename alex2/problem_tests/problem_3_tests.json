@@ -1,0 +1,7 @@
+[{"input": {"str": "Chocolate", "n": 2},"output": "ChoCho", "hint": "func('Chocolate', 2) -> 'ChoCho'"},
+{"input": {"str": "Chocolate", "n": 3},"output": "ChoChoCho", "hint": "func('Chocolate', 3) -> 'ChoChoCho'"},
+{"input": {"str": "Abc", "n": 3},"output": "AbcAbcAbc", "hint": "func('Abc', 3) -> 'AbcAbcAbc'"},
+{"input": {"str": "Ab", "n": 4},"output": "AbAbAbAb", "hint": "func('Ab', 4) -> 'AbAbAbAb'"},
+{"input": {"str": "A", "n": 4},"output": "AAAA", "hint": "func('A', 4) -> 'AAAA'"},
+{"input": {"str": "", "n": 4},"output": "", "hint": "func('', 4) -> ''"},
+{"input": {"str": "Abc", "n": 0},"output": "", "hint": "func('Abc', 0) -> ''"}]

@@ -1,0 +1,4 @@
+[{"input": {"weekday": false, "vacation": false},"output": true, "hint": "func(false, false) -> true"},
+{"input": {"weekday": true, "vacation": false},"output": false, "hint": "func(true, false) -> false"},
+{"input": {"weekday": false, "vacation": true},"output": true, "hint": "func(false, true) -> true"},
+{"input": {"weekday": true, "vacation": true},"output": true, "hint": "func(true, true) -> true"}]

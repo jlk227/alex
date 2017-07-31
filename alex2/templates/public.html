@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="front-page">
+<p>Hello, I'm Alex.</p>
+<p>I'm here to help you prepare Python technical coding interviews.</p>
+</div>
+<div class="paragraph" style="margin: 0px 40px;">
+<p> List of problems</p>
+</div>
+<table style="margin: 0px 40px;">
+<TR>
+  <TH> Problem No. </TH>
+  <TH> Level</TH>
+  <TH> Num of Users </TH>
+  <TH> Num of Solved </TH>
+  <TH> Num of Failed </TH>
+</TR>
+{% for problem in problems %}
+<TR>
+  <TD class="c1">Problem {{ loop.index }}</TD>
+  <TD class="c1">{{problem.level}}</TD>
+  <TD class="c1">{{problem.num_users}}</TD>
+  <TD class="c1">{{problem.num_users_passed}}</TD>
+  <TD class="c1">{{problem.num_users_failed}}</TD>
+</TR>
+{% endfor %}
+</table>
+{% endblock %}

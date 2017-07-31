@@ -1,0 +1,8 @@
+[{"input": {"a": "xxcaazz", "b": "xxbaaz"},"output": 3, "hint": "func('xxcaazz', 'xxbaaz') -> 3"},
+{"input": {"a": "abc", "b": "abc"},"output":2 , "hint": "func('abc', 'abc') -> 2"},
+{"input": {"a": "abc", "b": "axc"},"output": 0, "hint": "func('abc', 'axc') -> 0"},
+{"input": {"a": "hello", "b": "he"},"output":1 , "hint": "func('hello', 'he') -> 1"},
+{"input": {"a": "he", "b": "hello"},"output": 1, "hint": "func('he', 'hello') -> 1"},
+{"input": {"a": "h", "b": "hello"},"output": 0, "hint": "func('h', 'hello') -> 0"},
+{"input": {"a": "", "b": "hello"},"output": 0, "hint": "func('', 'hello') -> 0"},
+{"input": {"a": "aabbccdd", "b": "abbbxxd"},"output":1 , "hint": "func('aabbccdd', 'abbbxxd') -> 1"}]

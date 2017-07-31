@@ -1,0 +1,8 @@
+[{"input": {"tag": "i", "word": "Yay"},"output": "<i>Yay</i>", "hint": "func('i', 'Yay') -> '<i>Yay</i>'"},
+{"input": {"tag": "i", "word": "Hello"},"output": "<i>Hello</i>", "hint": "func('i', 'Hello') -> '<i>Hello</i>'"},
+{"input": {"tag": "cite", "word": "Yay"},"output": "<cite>Yay</cite>", "hint": "func('cite', 'Yay') -> '<cite>Yay</cite>'"},
+{"input": {"tag": "address", "word": "here"},"output": "<address>here</address>", "hint": "func('address', 'here') -> '<address>here</address>'"},
+{"input": {"tag": "body", "word": "Heart"},"output": "<body>Heart</body>", "hint": "func('body', 'Heart') -> '<body>Heart</body>'"},
+{"input": {"tag": "i", "word": "i"},"output": "<i>i</i>", "hint": "func('i', 'i') -> '<i>i</i>'"},
+{"input": {"tag": "i", "word": ""},"output": "<i></i>", "hint": "func('i', '') -> '<i></i>'"}
+]

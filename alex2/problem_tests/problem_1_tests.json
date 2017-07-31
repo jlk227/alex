@@ -1,0 +1,8 @@
+[{"input": {"n": 19},"output": 2, "hint": "func(19) -> 2"},
+{"input": {"n": 10},"output": 11, "hint": "func(10) -> 11"},
+{"input": {"n": 21},"output": 0, "hint": "func(21) -> 0"},
+{"input": {"n": -21},"output": 42, "hint": "func(-21) -> 42"},
+{"input": {"n": 22},"output": 2, "hint": "func(22) -> 2"},
+{"input": {"n": 0},"output": 21, "hint": "func(0) -> 21"},
+{"input": {"n": 50},"output": 58, "hint": "func(50) -> 58"},
+{"input": {"n": -2},"output": 23, "hint": "func(-2) -> 23"}]

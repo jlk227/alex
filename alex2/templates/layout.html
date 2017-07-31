@@ -1,0 +1,121 @@
+<!doctype html>
+
+<head>
+    <title>{% block title %}Welcome{% endblock %} | alex2</title>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.min.js"></script>
+    <script src="{{ url_for('static', filename='ace-builds/src-noconflict/ace.js') }}" type="text/javascript" charset="utf-8"></script>
+
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function() {
+            if ($('#editor').length > 0){
+                var editor = ace.edit("editor");
+                var textarea = $('#content');
+                editor.setTheme("ace/theme/monokai");
+                editor.getSession().setMode("ace/mode/python");
+                editor.getSession().on('change', function () {
+                  textarea.val(editor.getSession().getValue());
+                });
+                textarea.val(editor.getSession().getValue());
+            }
+
+            // Use a "/test" namespace.
+            // An application can open a connection on multiple namespaces, and
+            // Socket.IO will multiplex all those connections on a single
+            // physical channel. If you don't care about multiple channels, you
+            // can set the namespace to an empty string.
+            namespace = '/test';
+            // Connect to the Socket.IO server.
+            // The connection URL has the following format:
+            //     http[s]://<domain>:<port>[/<namespace>]
+            var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
+            // Event handler for new connections.
+            // The callback function is invoked when a connection with the
+            // server is established.
+            // socket.on('connect', function() {
+            //     socket.emit('my_event', {data: 'I\'m connected!'});
+            // });
+            // Event handler for server sent data.
+            // The callback function is invoked whenever the server emits data
+            // to the client. The data is then displayed in the "Received"
+            // section of the page.
+            socket.on('my_response', function(msg) {
+                $('#log').append('<li>' + msg.username + ': ' + msg.data + '</li>');
+            }); //'<br>' + $('<div/>').text(msg.username + ': ' + msg.data).html()
+            socket.on('redirect', function (data) {
+                window.location = data.url;
+            });
+
+            $('form#join_as_student').submit(function(event) {
+                socket.emit('join_as_student', {problem_id: $('#problem_id').val(), student_id:$('#student_id').val()});
+                $('#request_chat').hide();
+                $('#leave_chat').show();
+                $('#send_chat').show();
+                $('#receive_chats').show();
+                $('#log').html("");
+                return false;
+            });
+            $('form#join_as_teacher').submit(function(event) {
+                socket.emit('join_as_teacher', {problem_id: $('#problem_id').val(), teacher_id:$('#teacher_id').val()});
+                $('#accept_chat').hide();
+                $('#leave_chat').show();
+                $('#send_chat').show();
+                $('#receive_chats').show();
+                return false;
+            });
+
+            $('form#leave_as_student').submit(function(event) {
+                socket.emit('leave_as_student', {problem_id: $('#problem_id').val(), student_id:$('#student_id').val()});
+                $('#log').empty();
+                $('#request_chat').show();
+                $('#leave_chat').hide();
+                $('#send_chat').hide();
+                $('#receive_chats').hide();
+                $('#log').html("");
+                return false;
+            });
+            $('form#leave_as_teacher').submit(function(event) {
+                socket.emit('leave_as_teacher', {problem_id: $('#problem_id').val(), teacher_id:$('#teacher_id').val()});
+                return false;
+            });
+            $('form#send_room').submit(function(event) {
+                socket.emit('my_room_event', {room: $('#room_name').val(), data: $('#room_data').val()});
+                return false;
+            });
+        });
+    </script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<div class="page">
+  <h1>alex2</h1>
+  <div class="navigation">
+  {% if g.user %}
+    <a href="{{ url_for('problem') }}">my problem</a> |
+    <a href="{{ url_for('public') }}">public</a> |
+    <a href="{{ url_for('logout') }}">sign out [{{ g.user.username }}]</a>
+  {% else %}
+    <a href="{{ url_for('public') }}">public</a> |
+    <a href="{{ url_for('register') }}">sign up</a> |
+    <a href="{{ url_for('login') }}">sign in</a>
+  {% endif %}
+  </div>
+  {% with flashes = get_flashed_messages() %}
+    {% if flashes %}
+      <ul class="flashes">
+      {% for message in flashes %}
+        <li>{{ message }}
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+  <div class="body">
+
+
+  {% block body %}{% endblock %}
+  </div>
+  <div class="footer">
+    alex2 &mdash; A Flask Application
+  </div>
+</div>
+

@@ -1,0 +1,43 @@
+
+                        / alex2 /
+
+           because writing todo lists is not fun
+
+
+    ~ What is alex2?
+
+      A SQLite and Flask powered alex
+
+    ~ How do I use it?
+
+      1. edit the configuration in the alex2.py file or
+         export an ALEX2_SETTINGS environment variable
+         pointing to a configuration file.
+
+      2. install the app from the root of the project directory
+
+         pip install --editable .
+
+      3. tell flask about the right application:
+
+         export FLASK_APP=alex2
+
+      4. fire up a shell and run this:
+
+         flask initdb
+
+      5. fire up a shell and run this:
+
+         flask seeddb
+
+      6. now you can run alex2:
+
+         flask run
+
+         the application will greet you on
+         http://localhost:5000/
+
+    ~ Is it tested?
+
+      You betcha.  Run the `python setup.py test` file to
+      see the tests pass.

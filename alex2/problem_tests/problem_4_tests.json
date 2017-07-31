@@ -1,0 +1,10 @@
+[{"input": {"str": "Code"},"output": "CCoCodCode", "hint": "func('Code') -> 'CCoCodCode'"},
+{"input": {"str": "abc"},"output": "aababc", "hint": "func('abc') -> 'aababc'"},
+{"input": {"str": "ab"},"output": "aab", "hint": "func('ab') -> 'aab'"},
+{"input": {"str": "x"},"output": "x", "hint": "func('x') -> 'x'"},
+{"input": {"str": "fade"},"output": "ffafadfade", "hint": "func('fade') -> 'ffafadfade'"},
+{"input": {"str": "There"},"output": "TThTheTherThere", "hint": "func('There') -> 'TThTheTherThere'"},
+{"input": {"str": "Kitten"},"output": "KKiKitKittKitteKitten", "hint": "func('Kitten') -> 'KKiKitKittKitteKitten'"},
+{"input": {"str": "Bye"},"output": "BByBye", "hint": "func('Bye') -> 'BByBye'"},
+{"input": {"str": "Good"},"output": "GGoGooGood", "hint": "func('Good') -> 'GGoGooGood'"},
+{"input": {"str": "Bad"},"output": "BBaBad", "hint": "func('Bad') -> 'BBaBad'"}]

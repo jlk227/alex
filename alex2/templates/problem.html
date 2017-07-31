@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block body %}
+ 
+
+<div class="problem-description">{{ problem.description |safe}}</div>
+
+<div>
+    <form action="{{ url_for('post_solution', problem_id=problem.problem_id) }}" method="post" class="post_solution">
+      {% if solution %}
+      <dl>
+        <dd><div id="editor">{{solution |safe}}</div>
+            <textarea id="content" class="code" name="solution" style="display:none;"></textarea>
+        </dd>
+        <dd><input type="submit" value="Submit"></dd>
+      </dl>
+      {%else %}
+      <dl>
+        <dd><div id="editor">{{ problem.func_prefix }}</div>
+            <textarea id="content" class="code" name="solution" style="display:none;"></textarea>
+        </dd>
+        <dd><input type="submit" value="Submit"></dd>
+      </dl>
+      {% endif %}
+    </form>
+</div>
+
+{% if tests_results %}
+<table>
+<TR>
+  <TH> No. </TH>
+  <TH> Status</TH>
+  <TH> Your output </TH>
+  {% if show_hint %}<TH> Hint </TH> {%endif%}
+</TR>
+{% for test_result in tests_results %}
+<TR>
+  <TD class="c1">Test {{ loop.index }}</TD>
+  <TD class="c1">{{test_result.status}}</TD>
+  <TD class="c1">{{test_result.output}}</TD>
+  {% if show_hint %}<TD> {{test_result.hint}} </TD> {%endif%}
+</TR>
+{% endfor %}
+</table>
+{% endif %}
+
+{% if exception %}
+{{ exception }}
+{% endif %}
+
+{% if show_chat and not session.room%}
+  <div class="twitbox" id="request_chat">
+    <h3>Would you like to be connected to a study buddy in real time?</h3>
+    <form id="join_as_student" method="POST" action="#">
+        <input type="hidden" name="problem_id" id="problem_id" value="{{problem.problem_id}}">
+        <input type="hidden" name="student_id" id="student_id" value="{{g.user.user_id}}">
+        <input type="submit" name="yes" value="YES">
+    </form>
+  </div>
+{% endif %}
+
+<div class="twitbox" id="send_chat" hidden>
+  
+  <form id="send_room" method="POST" action='#'>
+      <input type="hidden" type="text" name="room_name" id="room_name" value="{{session.room}}">
+      <input type="hidden" type="text" name="user_name" id="user_id" value="{{g.user.user_id}}">
+      <textarea name="room_data" id="room_data" placeholder="Message"> </textarea>
+      <input type="submit" value="Send" style="float:right">
+  </form>
+</div>
+
+  <div class="chat_messages" id="receive_chats" hidden>
+      <h2>Chat Messages</h2>
+      <ul id="log" class="messages"></ul>
+  </div>
+
+  <div class="leave-room" id="leave_chat" hidden style="margin: 10px 0px;">
+    <form id="leave_as_student" method="POST" action="#">
+        <input type="hidden" name="problem" id="problem_id" value="{{problem.problem_id}}">
+        <input type="hidden" name="student_id" id="student_id" value="{{g.user.user_id}}">
+        <input type="submit" value="Leave Chat?">
+    </form>
+  </div>
+
+
+
+
+
+{% endblock %}

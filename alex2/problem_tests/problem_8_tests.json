@@ -1,0 +1,13 @@
+[{"input": {"small": 4, "big": 1, "goal": 9},"output": 4 , "hint": "func(4, 1, 9) -> 4"},
+{"input": {"small": 4, "big": 1, "goal": 10},"output": -1, "hint": "func(4, 1, 19) -> -1"},
+{"input": {"small": 4, "big": 1, "goal": 7},"output": 2, "hint": "func(4, 1, 7) -> 2"},
+{"input": {"small": 6, "big": 2, "goal": 7},"output": 2, "hint": "func(6, 2, 7) -> 2"},
+{"input": {"small": 4, "big": 1, "goal": 5},"output": 0, "hint": "func(4, 1, 5) -> 0"},
+{"input": {"small": 4, "big": 1, "goal": 4},"output": 4, "hint": "func(4, 1, 4) -> 4"},
+{"input": {"small": 5, "big": 4, "goal": 9},"output": 4, "hint": "func(5, 4, 9) -> 4"},
+{"input": {"small": 9, "big": 3, "goal": 18},"output": 3, "hint": "func(9, 3, 18) -> 3"},
+{"input": {"small": 3, "big": 1, "goal": 9},"output": -1, "hint": "func(3, 1, 9) -> -1"},
+{"input": {"small": 1, "big": 2, "goal": 7},"output": -1, "hint": "func(1, 2, 7) -> -1"},
+{"input": {"small": 1, "big": 2, "goal": 6},"output": 1, "hint": "func(1, 2, 6) -> 1"},
+{"input": {"small": 1, "big": 2, "goal": 5},"output": 0, "hint": "func(1, 2, 5) -> 0"}
+]
